@@ -1,9 +1,6 @@
 <?php
 
-namespace Dot\Galleries\Migrations;
-
 use Illuminate\Database\Migrations\Migration;
-use Schema;
 
 class CreateGalleriesMediaTable extends Migration
 {
