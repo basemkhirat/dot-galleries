@@ -2,15 +2,15 @@
 
 namespace Dot\Galleries\Controllers;
 
-use Request;
 use Action;
-use Redirect;
-use View;
 use Dot\Auth\Models\Auth;
 use Dot\Galleries\Models\Gallery;
-use Dot\Media\Models\Media;
 use Dot\Galleries\Models\GalleryMedia;
-use Dot\Controller;
+use Dot\Media\Models\Media;
+use Dot\Platform\Controller;
+use Redirect;
+use Request;
+use View;
 
 class GalleriesController extends Controller
 {
@@ -135,7 +135,7 @@ class GalleriesController extends Controller
                 <tr>
                     <td>
                         <div
-                            style="overflow: hidden; background: #3e3e3e; margin: 10px 0; padding: 10px; border-radius: 4px">
+                                style="overflow: hidden; background: #3e3e3e; margin: 10px 0; padding: 10px; border-radius: 4px">
                             <?php foreach ($files as $media) { ?>
                                 <div class="media_row"
                                      style="border-radius: 2px; margin: 4px 5px; width: 145px; border: 1px solid rgb(139, 139, 139); box-shadow: 0px 1px 1px rgb(142, 142, 142); float: right; height: 127px; position: relative; padding: 3px;margin-bottom: 30px;">
@@ -152,7 +152,7 @@ class GalleriesController extends Controller
                                         <?php } ?>
                                     <?php } ?>
                                     <span
-                                        style="font-family: tahoma; background: none repeat scroll 0 0 #555555;  color: #ccc;  float: left;  height: 37px;  margin-top: -43px;  opacity: 0.81;  overflow: hidden;  width: 100%;  word-wrap: break-word;"><?php echo Str::limit($media->title, 30); ?></span>
+                                            style="font-family: tahoma; background: none repeat scroll 0 0 #555555;  color: #ccc;  float: left;  height: 37px;  margin-top: -43px;  opacity: 0.81;  overflow: hidden;  width: 100%;  word-wrap: break-word;"><?php echo Str::limit($media->title, 30); ?></span>
                                 </div>
                             <?php } ?>
                         </div>
@@ -229,7 +229,8 @@ class GalleriesController extends Controller
                     <li class="media_row">
                         <input type="hidden" name="media_id[]" value="<?php echo $media->media_id; ?>"/>
 
-                        <a href="#" class="media_row_delete" data-message="<?php echo trans("galleries::galleries.media_row_delete"); ?>">
+                        <a href="#" class="media_row_delete"
+                           data-message="<?php echo trans("galleries::galleries.media_row_delete"); ?>">
                             <i class="fa fa-times"></i>
                         </a>
 
@@ -292,7 +293,8 @@ class GalleriesController extends Controller
         }
     }
 
-    public function delete() {
+    public function delete()
+    {
 
         $ids = Request::get("id");
 

@@ -2,12 +2,11 @@
 
 namespace Dot\Galleries;
 
-use Plugin;
-use Navigation;
 use Gate;
+use Navigation;
 use URL;
 
-class GalleriesPlugin extends Plugin
+class Plugin extends \Dot\Platform\Plugin
 {
 
     public $permissions = [

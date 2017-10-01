@@ -2,12 +2,12 @@
 
 namespace Dot\Galleries\Models;
 
-use Dot\Model;
-use Dot\Users\Models\User;
 use Dot\Media\Models\Media;
+use Dot\Platform\Model;
+use Dot\Users\Models\User;
 
-
-class Gallery extends Model {
+class Gallery extends Model
+{
 
     protected $module = 'galleries';
 
@@ -41,7 +41,8 @@ class Gallery extends Model {
         return $this->hasOne(User::class, "id", "user_id");
     }
 
-    function files(){
+    function files()
+    {
         return $this->belongsToMany(Media::class, "galleries_media", "gallery_id", "media_id");
     }
 

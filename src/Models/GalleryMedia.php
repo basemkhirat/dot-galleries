@@ -2,9 +2,10 @@
 
 namespace Dot\Galleries\Models;
 
-use Dot\Model;
+use Dot\Platform\Model;
 
-class GalleryMedia extends Model {
+class GalleryMedia extends Model
+{
 
     protected $table = "galleries_media";
 

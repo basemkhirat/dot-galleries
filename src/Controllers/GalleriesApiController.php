@@ -2,15 +2,14 @@
 
 namespace Dot\Galleries\Controllers;
 
-use Dot\ApiController; 
-use Illuminate\Http\Request;
 use Dot\Galleries\Models\Gallery;
-
+use Dot\Platform\APIController;
+use Illuminate\Http\Request;
 
 /**
  * Class GalleriesApiController
  */
-class GalleriesApiController extends ApiController
+class GalleriesApiController extends APIController
 {
 
     /**
@@ -44,8 +43,8 @@ class GalleriesApiController extends ApiController
 
         $components = $request->get("with", []);
 
-        foreach($components as $relation => $data){
-            $components[$relation] = function($query) use ($data){
+        foreach ($components as $relation => $data) {
+            $components[$relation] = function ($query) use ($data) {
                 return $query->orderBy(array_get($data, 'order_by', "id"), array_get($data, 'order_direction', "DESC"));
             };
         }
