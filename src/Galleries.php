@@ -6,15 +6,17 @@ use Gate;
 use Navigation;
 use URL;
 
-class Plugin extends \Dot\Platform\Plugin
+class Galleries extends \Dot\Platform\Plugin
 {
 
-    public $permissions = [
+    protected $permissions = [
         "manage"
     ];
 
     function boot()
     {
+
+        parent::boot();
 
         Navigation::menu("sidebar", function ($menu) {
 
@@ -24,9 +26,6 @@ class Plugin extends \Dot\Platform\Plugin
                     ->icon("fa-camera");
             }
         });
-
-        include __DIR__ . "/routes.php";
-
     }
 
 }
