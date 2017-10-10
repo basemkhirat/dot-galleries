@@ -21,7 +21,7 @@ class Galleries extends \Dot\Platform\Plugin
         Navigation::menu("sidebar", function ($menu) {
 
             if (Auth::user()->can("galleries.manage")) {
-                $menu->item('galleries', trans("admin::common.galleries"), URL::to(ADMIN . '/galleries'))
+                $menu->item('galleries', trans("admin::common.galleries"), route("admin.galleries.show"))
                     ->order(5)
                     ->icon("fa-camera");
             }
