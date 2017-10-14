@@ -27,7 +27,7 @@ class GalleriesController extends Controller
     {
 
         if (Request::isMethod("post")) {
-            if (Request::has("action")) {
+            if (Request::filled("action")) {
                 switch (Request::get("action")) {
                     case "delete":
                         return $this->delete();
@@ -37,11 +37,11 @@ class GalleriesController extends Controller
 
         $ob = Gallery::with("files")->orderBy("id", "DESC");
 
-        if (Request::has("q")) {
+        if (Request::filled("q")) {
             $ob->where('name', 'LIKE', '%' . Request::get("q") . '%');
         }
 
-        if (Request::has("per_page")) {
+        if (Request::filled("per_page")) {
             $this->data["per_page"] = $per_page = Request::get("per_page");
         } else {
             $this->data["per_page"] = $per_page = 20;
@@ -171,11 +171,11 @@ class GalleriesController extends Controller
 
         $ob = Gallery::orderBy("id", "DESC");
 
-        if (Request::has("q")) {
+        if (Request::filled("q")) {
             $ob->where('name', 'LIKE', '%' . Request::get("q") . '%');
         }
 
-        if (Request::has("id")) {
+        if (Request::filled("id")) {
             $ob->where('galleries.id', Request::get("id"));
         }
 
