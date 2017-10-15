@@ -24,7 +24,7 @@
                 <div class="input-group">
                     <input name="q" value="{{ Request::get("q") }}" type="text" class=" form-control"
                            placeholder="{{ trans("galleries::galleries.search_galleries") }} ..."> <span
-                            class="input-group-btn">
+                        class="input-group-btn">
                     <button class="btn btn-primary"
                             type="button"> <i class="fa fa-search"></i> </button> </span>
                 </div>
@@ -33,7 +33,7 @@
 
         <div class="col-lg-2 pull-right">
             <a href="{{ route("admin.galleries.create") }}" class="btn btn-primary btn-labeled btn-main"> <span
-                        class="btn-label icon fa fa-plus"></span> {{ trans("galleries::galleries.add_new") }}
+                    class="btn-label icon fa fa-plus"></span> {{ trans("galleries::galleries.add_new") }}
             </a>
         </div>
     </div>
@@ -61,7 +61,7 @@
                                             <option value="-1"
                                                     selected="selected">{{ trans("galleries::galleries.bulk_actions") }}</option>
                                             <option
-                                                    value="delete">{{ trans("galleries::galleries.delete") }}</option>
+                                                value="delete">{{ trans("galleries::galleries.delete") }}</option>
                                         </select>
                                         <button type="submit"
                                                 class="btn btn-primary pull-right">{{ trans("galleries::galleries.apply") }}</button>
@@ -79,8 +79,8 @@
                                             </option>
                                             @foreach (array(10, 20, 30, 40) as $num)
                                                 <option
-                                                        value="{{ $num }}"
-                                                        @if ($num == $per_page) selected="selected" @endif>{{ $num }}</option>
+                                                    value="{{ $num }}"
+                                                    @if ($num == $per_page) selected="selected" @endif>{{ $num }}</option>
                                             @endforeach
                                         </select>
 

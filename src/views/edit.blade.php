@@ -26,7 +26,7 @@
                 <a href="{{ route("admin.galleries.create") }}"
                    class="btn btn-primary btn-labeled btn-main"> <span
                         class="btn-label icon fa fa-plus"></span>
-                     {{ trans("galleries::galleries.add_new") }}
+                    {{ trans("galleries::galleries.add_new") }}
                 </a>
 
                 <button type="submit" class="btn btn-flat btn-danger btn-main">
@@ -85,19 +85,24 @@
                                                             <div class="file">
                                                                 <a href="#">
                                                                     <span class="corner"></span>
-                                                                    <a href="#" class="media_del"><i class="fa fa-times"></i></a>
+                                                                    <a href="#" class="media_del"><i
+                                                                            class="fa fa-times"></i></a>
                                                                     @if ($media->type == "image")
-                                                                    <div class="image">
-                                                                        <img src="{{ thumbnail($media->path, "small") }}"
-                                                                             class="img-responsive" alt="image">
-                                                                    </div>
+                                                                        <div class="image">
+                                                                            <img
+                                                                                src="{{ thumbnail($media->path, "small") }}"
+                                                                                class="img-responsive" alt="image">
+                                                                        </div>
                                                                     @elseif ($media->type == "audio")
-                                                                    <div class="icon"><i class="fa fa-music"></i></div>
+                                                                        <div class="icon"><i class="fa fa-music"></i>
+                                                                        </div>
                                                                     @elseif ($media->type == "video")
-                                                                    <div class="icon"><i class="img-responsive fa fa-film"></i>
-                                                                    </div>
+                                                                        <div class="icon"><i
+                                                                                class="img-responsive fa fa-film"></i>
+                                                                        </div>
                                                                     @else
-                                                                    <div class="icon"><i class="fa fa-file"></i></div>
+                                                                        <div class="icon"><i class="fa fa-file"></i>
+                                                                        </div>
                                                                     @endif
 
                                                                     <div class="file-name">

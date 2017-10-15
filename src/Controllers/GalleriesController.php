@@ -52,6 +52,30 @@ class GalleriesController extends Controller
         return View::make("galleries::show", $this->data);
     }
 
+    public function delete()
+    {
+
+        $ids = Request::get("id");
+
+        if (!is_array($ids)) {
+            $ids = array($ids);
+        }
+
+        foreach ($ids as $ID) {
+            $gallery = Gallery::findOrFail($ID);
+
+            // fire gallery deleting action
+            Action::fire("gallery.deleting", $gallery);
+
+            $gallery->files()->detach();
+            $gallery->delete();
+
+            // fire gallery deleted action
+            Action::fire("gallery.deleted", $gallery);
+        }
+        return Redirect::back()->with("message", trans("galleries::galleries.events.deleted"));
+    }
+
     public function create()
     {
 
@@ -135,7 +159,7 @@ class GalleriesController extends Controller
                 <tr>
                     <td>
                         <div
-                                style="overflow: hidden; background: #3e3e3e; margin: 10px 0; padding: 10px; border-radius: 4px">
+                            style="overflow: hidden; background: #3e3e3e; margin: 10px 0; padding: 10px; border-radius: 4px">
                             <?php foreach ($files as $media) { ?>
                                 <div class="media_row"
                                      style="border-radius: 2px; margin: 4px 5px; width: 145px; border: 1px solid rgb(139, 139, 139); box-shadow: 0px 1px 1px rgb(142, 142, 142); float: right; height: 127px; position: relative; padding: 3px;margin-bottom: 30px;">
@@ -152,7 +176,7 @@ class GalleriesController extends Controller
                                         <?php } ?>
                                     <?php } ?>
                                     <span
-                                            style="font-family: tahoma; background: none repeat scroll 0 0 #555555;  color: #ccc;  float: left;  height: 37px;  margin-top: -43px;  opacity: 0.81;  overflow: hidden;  width: 100%;  word-wrap: break-word;"><?php echo Str::limit($media->title, 30); ?></span>
+                                        style="font-family: tahoma; background: none repeat scroll 0 0 #555555;  color: #ccc;  float: left;  height: 37px;  margin-top: -43px;  opacity: 0.81;  overflow: hidden;  width: 100%;  word-wrap: break-word;"><?php echo Str::limit($media->title, 30); ?></span>
                                 </div>
                             <?php } ?>
                         </div>
@@ -291,30 +315,6 @@ class GalleriesController extends Controller
                 ));
             }
         }
-    }
-
-    public function delete()
-    {
-
-        $ids = Request::get("id");
-
-        if (!is_array($ids)) {
-            $ids = array($ids);
-        }
-
-        foreach ($ids as $ID) {
-            $gallery = Gallery::findOrFail($ID);
-
-            // fire gallery deleting action
-            Action::fire("gallery.deleting", $gallery);
-
-            $gallery->files()->detach();
-            $gallery->delete();
-
-            // fire gallery deleted action
-            Action::fire("gallery.deleted", $gallery);
-        }
-        return Redirect::back()->with("message", trans("galleries::galleries.events.deleted"));
     }
 
 
