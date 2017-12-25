@@ -3,7 +3,7 @@
 namespace Dot\Galleries\Controllers;
 
 use Action;
-use Dot\Auth\Models\Auth;
+use Illuminate\Support\Facades\Auth;
 use Dot\Galleries\Models\Gallery;
 use Dot\Galleries\Models\GalleryMedia;
 use Dot\Media\Models\Media;
