@@ -6,6 +6,7 @@ use Action;
 use Illuminate\Support\Facades\Auth;
 use Dot\Galleries\Models\Gallery;
 use Dot\Galleries\Models\GalleryMedia;
+use Illuminate\Support\Facades\DB;
 use Dot\Media\Models\Media;
 use Dot\Platform\Controller;
 use Redirect;
@@ -216,7 +217,7 @@ class GalleriesController extends Controller
                         <div class="gallery_details_name"><?php echo $gallery->name; ?></div>
                         <div style="display: none" class="gallery_details_author"><?php echo $gallery->author; ?></div>
                         <div class="gallery_details_count">
-                            (<span><?php echo $gallery->media_count; ?></span>) <?php echo trans("media::media.files"); ?>
+                            (<span><?php echo $gallery->files->count(); ?></span>) <?php echo trans("media::media.files"); ?>
                         </div>
                     </div>
                     <div class="gallery_ctrls">

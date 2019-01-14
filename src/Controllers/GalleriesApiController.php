@@ -6,13 +6,13 @@ use Dot\Galleries\Models\Gallery;
 use Dot\Platform\APIController;
 use Illuminate\Http\Request;
 
-/*
+/**
  * Class GalleriesApiController
  */
 class GalleriesApiController extends APIController
 {
 
-    /*
+    /**
      * GalleriesApiController constructor.
      */
     function __construct(Request $request)
@@ -21,7 +21,7 @@ class GalleriesApiController extends APIController
         $this->middleware("permission:galleries.manage");
     }
 
-    /*
+    /**
      * List galleries
      * @param int $id (optional) The object identifier.
      * @param string $lang (default: user locale) The lang code.
@@ -66,7 +66,7 @@ class GalleriesApiController extends APIController
     }
 
 
-    /*
+    /**
      * Create a new gallery
      * @param string $name (required) The gallery name.
      * @param string $slug (optional) The gallery slug.
@@ -104,7 +104,7 @@ class GalleriesApiController extends APIController
 
     }
 
-    /*
+    /**
      * Update gallery by id
      * @param int $id (required) The gallery id.
      * @param string $name (required) The gallery name.
@@ -141,7 +141,7 @@ class GalleriesApiController extends APIController
 
     }
 
-    /*
+    /**
      * Delete gallery by id
      * @param int $id (required) The gallery id.
      * @return \Illuminate\Http\JsonResponse

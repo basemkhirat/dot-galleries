@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateGalleriesMediaTable extends Migration
 {
-    /*
+    /**
      * Run the migrations.
      *
      * @return void
@@ -21,7 +21,7 @@ class CreateGalleriesMediaTable extends Migration
         });
     }
 
-    /*
+    /**
      * Reverse the migrations.
      *
      * @return void
