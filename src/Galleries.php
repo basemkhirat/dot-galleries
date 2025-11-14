@@ -3,7 +3,7 @@
 namespace Dot\Galleries;
 
 use Illuminate\Support\Facades\Auth;
-use Navigation;
+use Dot\Platform\Facades\Navigation;
 
 class Galleries extends \Dot\Platform\Plugin
 {

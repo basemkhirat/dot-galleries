@@ -2,16 +2,16 @@
 
 namespace Dot\Galleries\Controllers;
 
-use Action;
+use Dot\Platform\Facades\Action;
 use Illuminate\Support\Facades\Auth;
 use Dot\Galleries\Models\Gallery;
 use Dot\Galleries\Models\GalleryMedia;
 use Illuminate\Support\Facades\DB;
 use Dot\Media\Models\Media;
 use Dot\Platform\Controller;
-use Redirect;
-use Request;
-use View;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\View;
 
 class GalleriesController extends Controller
 {
