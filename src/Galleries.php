@@ -4,7 +4,6 @@ namespace Dot\Galleries;
 
 use Illuminate\Support\Facades\Auth;
 use Navigation;
-use URL;
 
 class Galleries extends \Dot\Platform\Plugin
 {
