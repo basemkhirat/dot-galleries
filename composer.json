@@ -1,5 +1,6 @@
 {
     "name": "dot/galleries",
+    "version": "0.2.6",
     "description": "The galleries plugin of dot/platform",
     "keywords": [
         "framework",

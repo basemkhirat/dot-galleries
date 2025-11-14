@@ -20,21 +20,3 @@ Route::group([
         $route->any('/get/{offset?}', ["as" => "admin.galleries.ajax", "uses" => "GalleriesController@get"]);
     });
 });
-
-/*
- * API
- */
-
-Route::group([
-    "prefix" => API,
-    "middleware" => ["auth:api"],
-    "namespace" => "Dot\\Galleries\\Controllers"
-], function ($route) {
-    $route->get("/galleries/show", "GalleriesApiController@show");
-    $route->post("/galleries/create", "GalleriesApiController@create");
-    $route->post("/galleries/update", "GalleriesApiController@update");
-    $route->post("/galleries/destroy", "GalleriesApiController@destroy");
-});
-
-
-
